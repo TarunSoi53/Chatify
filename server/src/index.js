@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import authroute from "./routes/auth.route.js";
+import ChatRoute from "./routes/chat.route.js";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,7 +15,7 @@ app.use (bodyParser.json());
 
 
 app.use("/api/auth",authroute)
-app.use("/api/chat",authroute)
+app.use("/api/chat",ChatRoute)
 
 
 

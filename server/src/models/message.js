@@ -2,11 +2,11 @@ import mongoose from "../config/index.js";
 
 
 const MessageSchema = new mongoose.Schema({
-   senderid:{
-    type: mongooose.Schema.Types.ObjectId, ref: 'User'
+   senderId:{
+    type: mongoose.Schema.Types.ObjectId, ref: 'User'
    },
-   receiverid:{
-    type: mongooose.Schema.Types.ObjectId, ref: 'User'
+   receiverId:{
+    type: mongoose.Schema.Types.ObjectId, ref: 'User'
    },
    message:{
     type: String,
@@ -14,8 +14,15 @@ const MessageSchema = new mongoose.Schema({
     minlength: 1,
    
    },
+   createdAt: {
+    type: Date,
+    default: Date.now},
+
 });
 
+// MessageSchema.index({ senderId: 1, receiverId: 1 });
 const Message = mongoose.model("Message", MessageSchema);
+// In Message schema
+
 
 export default Message;
